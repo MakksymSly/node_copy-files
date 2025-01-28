@@ -26,11 +26,13 @@ const copy = () => {
     return;
   }
 
-  fs.copyFile(sourcePath, destinationPath, (err) => {
-    if (err) {
-      console.error('Something went wrong');
-    }
-  });
+  if (destinationPath) {
+    fs.copyFile(sourcePath, destinationPath, (err) => {
+      if (err) {
+        console.error(err.message);
+      }
+    });
+  }
 };
 
 copy();
